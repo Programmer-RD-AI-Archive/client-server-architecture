@@ -1,14 +1,17 @@
 package com.mycompany.tut1;
+import java.util.logging.Logger;
 
 public class Sender {
+	private static final Logger logger = Logger.getLogger(Receiver.class.getName()); 
+
 	public Message createMessage(String messageContent){
 		Message message = new Message(messageContent);	
-		System.out.println("Message Created With Content of: " + messageContent);
+		logger.info("Message Created With Content of: " + messageContent);
 		return message;
 	}	
 
 	public void sendMessage(Message message, Receiver receiver){
-		System.out.println("Message with Content " + message.getContent() + " is sent to Reciever");	
+		logger.info("Message with Content " + message.getContent() + " is sent to Reciever");	
 		receiver.recieveMessage(message);
 	}	
 }
